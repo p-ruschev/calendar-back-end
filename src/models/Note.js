@@ -5,7 +5,8 @@ let noteSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      minlength: [4, "End point should be at least 4 aracters"],
+      minlength: [4, "End point should be at least 4 characters"],
+      maxlength: [20, "End point should be at max 20 characters"],
     },
     description: {
       type: String,
