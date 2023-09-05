@@ -249,19 +249,19 @@ const initializeDeleteCalNote = async (req, res) => {
 ////
 router.get("/", renderAgenda);
 router.get("/search", searchNotes);
-router.get("/edit-custom-note/:noteId", initGetOneNote);
-router.get("/edit-calendar-note/:noteId", initGetOneCalNote);
+router.get("/edit-custom-note/:noteId", isAuth, initGetOneNote);
+router.get("/edit-calendar-note/:noteId", isAuth, initGetOneCalNote);
 //router.get('/create', isAuth, renderCreate);
-router.post("/create-holiday", initializeCreateHoliday);
-router.post("/create-note", initializeCreateNote);
+router.post("/create-holiday", isAuth, initializeCreateHoliday);
+router.post("/create-note", isAuth, initializeCreateNote);
 //router.get('/all', initializeGetAll);
 //router.get('/:tripId/details', renderDetails);
-router.delete("/delete-custom-note/:noteId", initializeDeleteNote);
-router.delete("/delete-calendar-note/:noteId", initializeDeleteCalNote);
+router.delete("/delete-custom-note/:noteId", isAuth, initializeDeleteNote);
+router.delete("/delete-calendar-note/:noteId", isAuth, initializeDeleteCalNote);
 //router.get('/:tripId/join', isAuth, isNotOwner, hasNotJoined, initializeJoin);
 //router.get('/:tripId/edit', isAuth, isOwner, renderEdit);
-router.put("/edit-custom-note/:noteId", initializeEditNote);
-router.put("/edit-calendar-note/:noteId", initializeEditCalNote);
+router.put("/edit-custom-note/:noteId", isAuth, initializeEditNote);
+router.put("/edit-calendar-note/:noteId", isAuth, initializeEditCalNote);
 //router.get('/search',  renderSearch);
 //router.post('/search',  initializeSearch);
 //
