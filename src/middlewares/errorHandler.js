@@ -7,20 +7,15 @@ const errorHandler = function (error, req, res, next) {
   }
 };
 
-const handleMultipleErrors = (res, error, renderView, body) => {
+const handleMultipleErrors = (res, error ) => {
   if (error.errors) {
     const errorsResult = [];
     Object.keys(error.errors).forEach((e) =>
       errorsResult.push(error.errors[e].properties)
     );
-    res.locals.errors = errorsResult;
+    res.json({error: errorsResult})
   } else {
-    res.locals.errors = [error];
-  }
-  if (body) {
-    return res.render(renderView, body);
-  } else {
-    return res.render(renderView);
+    res.json({error: error})
   }
 };
 module.exports = { errorHandler, handleMultipleErrors };
