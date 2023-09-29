@@ -4,7 +4,6 @@ const { initDatabase } = require("./config/database_config");
 const { errorHandler } = require("./middlewares/errorHandler");
 const app = express();
 
-const PORT = process.env.PORT || 5000;
 
 require('dotenv').config();
 require("./config/express_config")(app);
@@ -12,6 +11,7 @@ require("./config/express_config")(app);
 app.use(routes);
 app.use(errorHandler);
 
+const PORT = process.env.PORT || 5000
 initDatabase()
   .then(() => {
     app.listen(PORT, () =>

@@ -1,7 +1,6 @@
 const User = require("../models/User");
 
 const { sign } = require("../utils/jwt");
-// const { JWT_SECRET } = require("../constants");
 
 const login = async (userData) => {
   let user = await User.findOne({ email: userData.email });
@@ -28,22 +27,6 @@ const login = async (userData) => {
 
 const register = (userData) => User.create(userData);
 
-//const getOwnTrips = async (creatorId) => Trip.find({creator: creatorId}).lean();
-/*
- * const editProfle = () => {}
- *
- * const deleteProfle = () => {}
- *
- * const searchUser = () => {}
- *
- * const requestFriendship = () => {}
- *
- * const acceptFriendship = () => {}
- *
- * const removeFriendship = () => {}
- *
- * const getMyPosters = () => {}
- *  */
 const userService = {
   login,
   register,

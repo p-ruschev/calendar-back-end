@@ -11,7 +11,7 @@ const renderAgenda = async (req, res) => {
     const agenda = await calendarService.getMonthAgenda(year, month, user);
     res.status(200).json(agenda);
   } catch (error) {
-    console.log("error");
+    console.log(error);
   }
 };
 
@@ -61,7 +61,7 @@ const initGetOneNote = async (req, res) => {
     const agenda = await calendarService.getOneNote(noteId, user);
     res.status(200).json(agenda[0]);
   } catch (error) {
-    console.log("error");
+    console.log(error);
   }
 };
 
@@ -90,7 +90,7 @@ const initializeCreateHoliday = async (req, res) => {
     });
     res.status(200).json(holiday);
   } catch (error) {
-    console.log("error");
+    console.log(error);
   }
 };
 
@@ -102,7 +102,7 @@ const initializeCreateNote = async (req, res) => {
     });
     res.status(200).json(note);
   } catch (error) {
-    console.log("error");
+    console.log(error);
   }
 };
 
@@ -113,7 +113,7 @@ const initializeEditNote = async (req, res) => {
     });
     res.status(200).json({ note });
   } catch (error) {
-    console.log("error");
+    console.log(error);
   }
 };
 
@@ -124,7 +124,7 @@ const initializeEditCalNote = async (req, res) => {
     });
     res.status(200).json({ note });
   } catch (error) {
-    console.log("error");
+    console.log(error);
   }
 };
 

@@ -10,8 +10,6 @@ exports.isGuest = function (req, res, next) {
 exports.isOwner = async function (req, res, next) {
   try {
     const trip = await tripService.getOne(req.params.tripId);
-    console.log(req.user?._id);
-    console.log(trip.creator);
     if (req.user?._id == trip.creator._id) {
       req.trip = trip;
       next();

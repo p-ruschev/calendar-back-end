@@ -10,8 +10,6 @@ let noteSchema = new mongoose.Schema(
     },
     description: {
       type: String,
-      required: true,
-      minlength: [4, "End point should be at least 4 aracters"],
     },
     year: {
       require: true,

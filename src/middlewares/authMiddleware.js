@@ -1,8 +1,6 @@
 const { verify } = require("../utils/jwt");
-// const { AUTH_KEY, JWT_SECRET } = require("../constants");
 
 const auth = (req, res, next) => {
-  //  console.log(req);
   let token = req.headers[process.env.AUTH_KEY];
   if (token) {
     verify(token, process.env.JWT_SECRET)
